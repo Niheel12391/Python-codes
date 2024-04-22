@@ -1,0 +1,15 @@
+# Designer Door Mat
+
+
+s=input().split()
+thickness1=int(s[0])
+thickness2=int(s[1])
+c1='.|.'
+c2='-'
+for i in range(int(thickness1/2)):
+    print((i*c1).rjust(int(thickness2/2)-1,c2)+c1+(i*c1).ljust(int(thickness2/2)-1,c2))
+
+print('WELCOME'.center(thickness2,'-'))
+
+for i in range(int(thickness1/2)-1,-1,-1):
+    print((i*c1).rjust(int(thickness2/2)-1,c2)+c1+(i*c1).ljust(int(thickness2/2)-1,c2))
