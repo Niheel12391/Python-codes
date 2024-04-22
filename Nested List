@@ -1,0 +1,51 @@
+# fetching name of student having second lowest grade using "Nested list"
+
+
+def order_list(dict_student, list_names, list_score):
+    # Convert the list of scores to a set to remove duplicates
+    score_set = set(list_score)
+    # Convert the set back to a list
+    listScore = list(score_set)
+    # Sort the list of scores
+    listScore.sort()
+    
+    # Get the second lowest score
+    x = listScore[1]
+    # Get the names of the students with the second lowest score
+    second_names = list(dict_student[x])
+    # Sort the names alphabetically
+    second_names.sort()
+    
+    # Print the names of the students with the second lowest score
+    for i in second_names:
+        print(i)
+
+# Main function
+if __name__ == '__main__':
+    # Initialize an empty dictionary for students
+    dict_student = dict()
+    # Initialize an empty list for scores
+    list_score = list()
+    # Initialize an empty list for names
+    list_names = list()
+    
+    # Loop for the number of students
+    for _ in range(int(input())):
+        # Get the name of the student
+        name = input()
+        # Get the score of the student
+        score = float(input())
+        # Add the name to the list of names
+        list_names.append(name)
+        # Add the score to the list of scores
+        list_score.append(score)
+        
+        # If the score is already in the dictionary, append the name to the list of names for that score
+        # Otherwise, add the score to the dictionary with a new list containing the name
+        if score in dict_student:
+            dict_student[score] += [name]
+        else:
+            dict_student[score] = [name]
+        
+    # Call the function to order the list of students
+    order_list(dict_student, list_names, list_score)
